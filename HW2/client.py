@@ -10,8 +10,9 @@ print("host {0} port {1}".format(host, port))
 s.connect((host, port))
 
 # request file
-
-s.send("GET server.py".encode('ascii'))
+req_msg = "GET server.py"
+s.send(req_msg.encode('ascii'))
+print("Send request message {0}".format(req_msg))
 
 # receive file
 
@@ -28,7 +29,7 @@ if msg == "found":
             f.write(data)
     f.close()
 
-    print("Done receiving...")
+    print("Done receiving!")
 else:
     print("File can't be found at the server side")
 
